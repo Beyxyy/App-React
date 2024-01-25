@@ -33,6 +33,9 @@ jobs:
             server: link to my ftp
             username: sftpuser
             password: ${{ secrets.sftpuserpwd }}
+            local-dir: ./dist
+            server-dir: ./var/www/html/react/
+
 
 
 

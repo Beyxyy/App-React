@@ -1,5 +1,4 @@
 import React from 'react';
-// import './css/page/home.css';
 import Header from '../Component/Header';
 import Menu from '../Component/Menu';
 
