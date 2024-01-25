@@ -1,6 +1,6 @@
-name: CI/CD
+name: CI/CD production
 on:
-  pull_request:
+  push:
     branches:
       - production
 
@@ -20,12 +20,15 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: ./front
 
       - name: Testing the branch
         run: npm test
+        working-directory: ./front
 
       - name: Building the App
         run: npm run build
+        working-directory: ./front
 
       - name: Deploy my code to my server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -33,7 +36,7 @@ jobs:
             server: link to my ftp
             username: sftpuser
             password: ${{ secrets.sftpuserpwd }}
-            local-dir: ./dist
+            local-dir: ./front/dist
             server-dir: ./var/www/html/react/
 
 
